@@ -73,7 +73,7 @@ const COUNTRIES: Country[] = [
   imports: [NgbModalModule, NgbNavModule, CommonModule],
   templateUrl: './web-component-child.html',
   styleUrl: './web-component-child.css',
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WebComponentChild { 

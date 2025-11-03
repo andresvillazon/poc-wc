@@ -79,8 +79,11 @@ const COUNTRIES: Country[] = [
   imports: [NgbModalModule, NgbNavModule, CommonModule, WebComponentChild],
   templateUrl: './web-component.html',
   styleUrl: './web-component.scss',
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host:{
+    'class':'wc-component'
+  }
 })
 export class WebComponent {
   countries = COUNTRIES;
@@ -90,7 +93,7 @@ export class WebComponent {
 
   open() {
     const modalRef = this.modalService.open(NgbdModalContent,{
-      container:'.wc-component'
+      container:'.mi-web-component-wrapper'
     });
     modalRef.componentInstance.name = 'World';
   }

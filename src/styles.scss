@@ -1,22 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
 // /* Importing Bootstrap SCSS file. */
-// @import "bootstrap/scss/functions";
-// @import "bootstrap/scss/variables";
-// @import "bootstrap/scss/maps";
-// @import "bootstrap/scss/mixins";
-// @import "bootstrap/scss/utilities";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
 
 // // Importa las partes GLOBALES que necesitas
-// @import "bootstrap/scss/root";
+@import "bootstrap/scss/root";
 // @import "bootstrap/scss/reboot"; // El reset global
-// @import "bootstrap/scss/type";   // Fuentes globales
+@import "bootstrap/scss/type";   // Fuentes globales
 
-// // ¡Importa los componentes problemáticos aquí!
-
-// .mi-web-component-wrapper{
-//     @import "bootstrap/scss/modal";
-//     @import "bootstrap/scss/tooltip";
-//     @import "bootstrap/scss/popover";
-// }
-@import 'bootstrap/scss/bootstrap';
+.wc-component {
+  @import 'bootstrap/scss/bootstrap';
+}
