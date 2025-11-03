@@ -83,7 +83,9 @@ export class WebComponentChild {
     private modalService = inject(NgbModal);
   
     open() {
-      const modalRef = this.modalService.open(NgbdModalContent);
+      const modalRef = this.modalService.open(NgbdModalContent, {
+        container:'.mi-web-component-wrapper'
+      });
       modalRef.componentInstance.name = 'World';
     }
 }

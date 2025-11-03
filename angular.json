@@ -18,7 +18,7 @@
           "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/tressis-poc",
-            "index": "src/index.html",
+            "index": "",
             "main": "src/main.ts",
             "polyfills": ["zone.js","@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
