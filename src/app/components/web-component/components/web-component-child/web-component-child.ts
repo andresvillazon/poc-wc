@@ -84,7 +84,7 @@ export class WebComponentChild {
   
     open() {
       const modalRef = this.modalService.open(NgbdModalContent, {
-        container:'.mi-web-component-wrapper'
+        container:'wc-poc'
       });
       modalRef.componentInstance.name = 'World';
     }

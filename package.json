@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
     "build:wc-pdn": "ng build --base-href=/tressis-poc/ && webpack --config scripts/webpack.bundle.js",
+    "postbuild": "node scripts/replace-fonts.js",
+    "simulate-docker": "node scripts/simulate-docker.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
