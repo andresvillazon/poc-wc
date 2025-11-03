@@ -15,29 +15,32 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/tressis-poc",
             "index": "src/index.html",
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "main": "src/main.ts",
+            "polyfills": ["zone.js","@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
+            "localize": false,
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "."
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -50,12 +53,33 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "none",
+              "commonChunk": false,
+              "optimization": true,
+              "buildOptimizer": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": false,
+              "vendorChunk": false,
+              "sourceMap": false
             },
             "development": {
-              "optimization": false,
+              "outputPath": "dist/tressis-poc",
+              "outputHashing": "none",
+              "commonChunk": false,
+              "optimization": true,
+              "buildOptimizer": true,
+              "namedChunks": false,
+              "aot": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "vendorChunk": false,
+              "sourceMap": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -70,7 +94,11 @@
               "buildTarget": "tressis-poc:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4300,
+            "publicHost": "http://localhost:4300"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
@@ -80,9 +108,19 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
+            ],
+            "codeCoverageExclude": [
+              "src/**/*.spec.ts",
+              "src/**/*.mock.ts",
+              "src/test.ts",
+              "src/environments/**",
+              "src/main.ts",
+              "src/bootstrap.ts"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
@@ -90,10 +128,14 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
