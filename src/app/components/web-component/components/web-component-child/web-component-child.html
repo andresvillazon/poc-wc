@@ -1,100 +1,102 @@
-<h2>Soy un componente hijo</h2>
-<main class="main">
-  <div class="container text-center">
-    <h2>TABLE</h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Country</th>
-          <th scope="col">Area</th>
-          <th scope="col">Population</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (country of countries; track country.name; let i = $index) {
-        <tr>
-          <th scope="row">{{ i + 1 }}</th>
-          <td>
-            <img
-              [src]="
+<div class="mi-container">
+  <h2>Soy un componente hijo</h2>
+  <main class="main">
+    <div class="container text-center">
+      <h2>TABLE</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Country</th>
+            <th scope="col">Area</th>
+            <th scope="col">Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (country of countries; track country.name; let i = $index) {
+          <tr>
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+              <img
+                [src]="
                 'https://upload.wikimedia.org/wikipedia/commons/' + country.flag
               "
-              [alt]="'The flag of ' + country.name"
-              class="me-2"
-              style="width: 20px"
-            />
-            {{ country.name }}
-          </td>
-          <td>{{ country.area | number }}</td>
-          <td>{{ country.population | number }}</td>
-        </tr>
-        }
-      </tbody>
-    </table>
+                [alt]="'The flag of ' + country.name"
+                class="me-2"
+                style="width: 20px"
+              />
+              {{ country.name }}
+            </td>
+            <td>{{ country.area | number }}</td>
+            <td>{{ country.population | number }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
 
-    <h2>NAVBAR</h2>
-    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-      <li [ngbNavItem]="1">
-        <button ngbNavLink>One</button>
-        <ng-template ngbNavContent>
-          <p>
-            Raw denim you probably haven't heard of them jean shorts Austin.
-            Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
-            cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
-            butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi,
-            qui irure terry richardson ex squid. Aliquip placeat salvia cillum
-            iphone. Seitan aliquip quis cardigan american apparel, butcher
-            voluptate nisi qui.
-          </p>
-        </ng-template>
-      </li>
-      <li [ngbNavItem]="2">
-        <button ngbNavLink>Two</button>
-        <ng-template ngbNavContent>
-          <p>
-            Exercitation +1 labore velit, blog sartorial PBR leggings next level
-            wes anderson artisan four loko farm-to-table craft beer twee. Qui
-            photo booth letterpress, commodo enim craft beer mlkshk aliquip jean
-            shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda
-            labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia
-            yr, vero magna velit sapiente labore stumptown. Vegan fanny pack
-            odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY
-            ethical culpa terry richardson biodiesel. Art party scenester
-            stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed
-            echo park.
-          </p>
-        </ng-template>
-      </li>
-      <li [ngbNavItem]="3">
-        <button ngbNavLink>Three</button>
-        <ng-template ngbNavContent>
-          <p>
-            Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget
-            sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula
-            vitae odio interdum aliquet. Duis lectus turpis, luctus eget
-            tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus.
-            Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed
-            diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent
-            fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique
-            ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio.
-            Orci varius natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet
-            ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar
-            feugiat.
-          </p>
-        </ng-template>
-      </li>
-    </ul>
+      <h2>NAVBAR</h2>
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <button ngbNavLink>One</button>
+          <ng-template ngbNavContent>
+            <p>
+              Raw denim you probably haven't heard of them jean shorts Austin.
+              Nesciunt tofu stumptown aliqua, retro synth master cleanse.
+              Mustache cliche tempor, williamsburg carles vegan helvetica.
+              Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby
+              sweater eu banh mi, qui irure terry richardson ex squid. Aliquip
+              placeat salvia cillum iphone. Seitan aliquip quis cardigan
+              american apparel, butcher voluptate nisi qui.
+            </p>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <button ngbNavLink>Two</button>
+          <ng-template ngbNavContent>
+            <p>
+              Exercitation +1 labore velit, blog sartorial PBR leggings next
+              level wes anderson artisan four loko farm-to-table craft beer
+              twee. Qui photo booth letterpress, commodo enim craft beer mlkshk
+              aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud
+              organic, assumenda labore aesthetic magna delectus mollit. Keytar
+              helvetica VHS salvia yr, vero magna velit sapiente labore
+              stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
+              sustainable jean shorts beard ut DIY ethical culpa terry
+              richardson biodiesel. Art party scenester stumptown, tumblr
+              butcher vero sint qui sapiente accusamus tattooed echo park.
+            </p>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <button ngbNavLink>Three</button>
+          <ng-template ngbNavContent>
+            <p>
+              Sed commodo, leo at suscipit dictum, quam est porttitor sapien,
+              eget sodales nibh elit id diam. Nulla facilisi. Donec egestas
+              ligula vitae odio interdum aliquet. Duis lectus turpis, luctus
+              eget tincidunt eu, congue et odio. Duis pharetra et nisl at
+              faucibus. Quisque luctus pulvinar arcu, et molestie lectus
+              ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat
+              volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus
+              nisl enim, nec tristique ipsum euismod facilisis. Morbi ut
+              bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
+              magnis dis parturient montes, nascetur ridiculus mus. Mauris
+              aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus
+              nec tortor vel tellus pulvinar feugiat.
+            </p>
+          </ng-template>
+        </li>
+      </ul>
 
-    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
 
-    <pre>Active: {{ active }}</pre>
+      <pre>Active: {{ active }}</pre>
 
-
-    <h2>MODAL</h2>
-    <div class="mi-web-component-wrapper"></div>
-    <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button>
-
-  </div>
-</main>
+      <h2>MODAL</h2>
+      <div class="mi-web-component-wrapper"></div>
+      <button class="btn btn-lg btn-outline-primary" (click)="open()">
+        Launch demo modal
+      </button>
+    </div>
+  </main>
+</div>

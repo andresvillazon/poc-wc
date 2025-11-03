@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+
+.mi-container{
+  background-color: rgba(137, 43, 226, 0.349);
+}
