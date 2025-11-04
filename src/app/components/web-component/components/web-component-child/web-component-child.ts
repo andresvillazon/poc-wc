@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, Input, viewChild, ViewEncapsulation } from '@angular/core';
 import { NgbActiveModal, NgbModal, NgbModalModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -72,19 +72,21 @@ const COUNTRIES: Country[] = [
   standalone: true,
   imports: [NgbModalModule, NgbNavModule, CommonModule],
   templateUrl: './web-component-child.html',
-  styleUrl: './web-component-child.css',
-  encapsulation: ViewEncapsulation.Emulated,
+  styleUrls: ['./web-component-child.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WebComponentChild { 
     countries = COUNTRIES;
     active = 1;
   
+    public containerRef = viewChild<ElementRef>('myContainer');
     private modalService = inject(NgbModal);
   
     open() {
       const modalRef = this.modalService.open(NgbdModalContent, {
-        container:'wc-poc'
+        container:this.containerRef()?.nativeElement,
+
       });
       modalRef.componentInstance.name = 'World';
     }

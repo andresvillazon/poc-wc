@@ -18,7 +18,7 @@
           "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/tressis-poc",
-            "index": "",
+            "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js","@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
@@ -31,7 +31,7 @@
                 "output": "."
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": []
           },
           "configurations": {
             "production": {
@@ -135,7 +135,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": ["src/**/.ts", "src/**/.html"]
           }
         }
       }

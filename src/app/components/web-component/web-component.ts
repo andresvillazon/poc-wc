@@ -78,8 +78,8 @@ const COUNTRIES: Country[] = [
   standalone: true,
   imports: [NgbModalModule, NgbNavModule, CommonModule, WebComponentChild],
   templateUrl: './web-component.html',
-  styleUrl: './web-component.scss',
-  encapsulation: ViewEncapsulation.Emulated,
+  styleUrls: ['./web-component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host:{
     'class':'wc-component'

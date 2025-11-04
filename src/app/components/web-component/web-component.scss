@@ -1,4 +1,10 @@
-// :host {
-//   display: block;
-//   @import 'bootstrap/scss/bootstrap';
-// }
+@import "src/styles.scss";
+@import "bootstrap/scss/bootstrap";
+
+:host {
+  display: block;
+}
+
+.mi-container{
+  background-color: rgba(137, 43, 226, 0.349);
+}
